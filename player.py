@@ -6,6 +6,8 @@ Created on Wed Sep 29 19:18:59 2021
 @author: tylertravis
 """
 
+import random
+
 class Player():
     
     """
@@ -33,7 +35,18 @@ class Player():
         self.otherpositions = ["ST", "RW"]
         self.rating = 85
         
+    def randomlyGeneratedPlayer(self):
+        self.league = random.choice(["ACAA", "AUS", "RSEQ", "OUA East", "OUA West","CW West", "MLS", "CPL"])
+        self.country = random.choice(["Canada", "USA"])
+        self.firstname = random.choice(["Lewis","Josh","Tyler", "Evan", "Marco", "Joseph", "Rick", "Morty"])
+        self.lastname = random.choice(["Barnfather","Bell","Comeau", "Couturier", "Court", "Wood", "Ellick"])
+        self.fullname = self.firstname + " " + self.lastname
+        self.position = random.choice(["GK", "LB", "CB", "RB", "CM", "CM", "CM", "LW", "ST", "RW"])
+        self.otherpositions = []
+        self.rating = random.randint(75, 90)
+        
     def playerInfo(self):
+        print("")
         print("Player Info for: {}".format(self.fullname))
         print("League:", self.league)
         print("Country:", self.country)
