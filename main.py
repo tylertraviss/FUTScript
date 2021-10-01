@@ -15,9 +15,11 @@ playerA.randomGeneration()
 #playerA.playerInfo()
 
 teamA = Team()
-teamA.changeCardintoPosition(playerA, "ST")
+#teamA.changeCardintoPosition(playerA, "ST")
 
 teamA.populateRoster()
-teamA.printCurrentLine()
+#teamA.printCurrentLine()
+#teamA.printRoster()
 
-teamA.printRoster()
+bestlw = teamA.findBest("ST")
+print(bestlw.rating)

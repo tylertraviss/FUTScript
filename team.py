@@ -8,7 +8,7 @@ Created on Wed Sep 29 20:04:40 2021
 
 from player import *
 
-rosterlength = 25
+rosterlength = 5
 
 class Team():
     
@@ -111,16 +111,64 @@ class Team():
         print("Subs:", self.sub1.fullname, self.sub2.fullname, self.sub3.fullname, self.sub4.fullname, self.sub5.fullname)
 
     def populateRoster(self):
+        # generates roster
         for i in range(rosterlength):
             p = Player()
             p.randomlyGeneratedPlayer()
             self.roster.append(p)
-            print(i, "iteration of added player")
             
-    def printRoster(self):
-        print(self.roster)
+    def printRoster(self):  
+        # prints through all players on roster
+        for i in range(rosterlength):
+            self.roster[i].playerInfo()
+            
+    def findBest(self, position):
+        """
+        Takes in position, returns best player in roster of it.
+        """
+        
+        listofplayers = []
+        
+        # Finds list of all players in that position.
         
         for i in range(rosterlength):
-            print(i)
-            self.roster[i].playerInfo()
+            
+            # Is this player the position we want?
+            if self.roster[i].position == position:
+                listofplayers.append(self.roster[i])
+           
+        for i in range(len(listofplayers)):    
+            print(listofplayers[i].position)    
+           
+        # Find max of ratings.
+        
+        playerratings = []
+        
+        for i in range(len(listofplayers)):
+            playerratings.append(listofplayers[i].rating)
+        
+        print(playerratings)
+        print(len(playerratings))
+        
+        if (len(playerratings) > 0):
+        
+            maxrating = max(playerratings)
+            maxindex = playerratings.index(maxrating)
+            return listofplayers[maxindex]
+        
+        else:
+            print("No players in that position.")
+            return None
+        
+        
+        
+    def autoCurrentLine(self):
+        """
+        Automatically selects your line, calls findbest.
+        """
+        pass
+        
+        # Picking Best Goalie
+        
+        
         
