@@ -18,8 +18,14 @@ teamA = Team()
 #teamA.changeCardintoPosition(playerA, "ST")
 
 teamA.populateRoster()
-#teamA.printCurrentLine()
-#teamA.printRoster()
+teamA.printCurrentLine()
 
-bestlw = teamA.findBest("ST")
-print(bestlw.rating)
+#bestlw = teamA.findBest("ST")
+#print(bestlw.rating)
+
+teamA.autoCurrentLine()
+
+teamA.printCurrentLine()
+
+
+

@@ -8,7 +8,7 @@ Created on Wed Sep 29 20:04:40 2021
 
 from player import *
 
-rosterlength = 5
+rosterlength = 50
 
 class Team():
     
@@ -44,6 +44,7 @@ class Team():
         """
         Player goes into squad position
         """
+        print("Called with {}, {}".format(player, position))
         
         if (position == "GK"):
             self.currentGK = player
@@ -121,7 +122,36 @@ class Team():
         # prints through all players on roster
         for i in range(rosterlength):
             self.roster[i].playerInfo()
+
+
+
+
+    def findBestGeneral(self):
+        """
+        Takes best regardless of position
+        """
+        
+        # NEEDS TO BE FIXED
+        
+        listofplayers = []
+        playerratings = []
+        
+        for i in range(rosterlength): # Iterating through to find best player
             
+            listofplayers.append(self.roster[i])
+            playerratings.append(listofplayers[i].rating)
+            
+            maxrating = max(playerratings)
+            maxindex = playerratings.index(maxrating)
+            return listofplayers[maxindex]
+            
+        
+            
+    
+    
+    
+    
+    
     def findBest(self, position):
         """
         Takes in position, returns best player in roster of it.
@@ -137,8 +167,7 @@ class Team():
             if self.roster[i].position == position:
                 listofplayers.append(self.roster[i])
            
-        for i in range(len(listofplayers)):    
-            print(listofplayers[i].position)    
+ 
            
         # Find max of ratings.
         
@@ -147,8 +176,6 @@ class Team():
         for i in range(len(listofplayers)):
             playerratings.append(listofplayers[i].rating)
         
-        print(playerratings)
-        print(len(playerratings))
         
         if (len(playerratings) > 0):
         
@@ -157,18 +184,18 @@ class Team():
             return listofplayers[maxindex]
         
         else:
-            print("No players in that position.")
-            return None
+            print("No players in that position, will select best player.")
+            return findBestGeneral()
         
-        
+
+            
         
     def autoCurrentLine(self):
         """
         Automatically selects your line, calls findbest.
         """
-        pass
+        # For each position.
         
-        # Picking Best Goalie
-        
+        self.changeCardintoPosition("GK", self.findBest("GK"))        
         
         
