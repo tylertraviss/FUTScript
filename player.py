@@ -38,8 +38,8 @@ class Player():
     def randomlyGeneratedPlayer(self):
         self.league = random.choice(["ACAA", "AUS", "RSEQ", "OUA East", "OUA West","CW West", "MLS", "CPL"])
         self.country = random.choice(["Canada", "USA"])
-        self.firstname = random.choice(["Lewis","Josh","Tyler", "Evan", "Marco", "Joseph", "Rick", "Morty"])
-        self.lastname = random.choice(["Barnfather","Bell","Comeau", "Couturier", "Court", "Wood", "Ellick"])
+        self.firstname = random.choice(["Nolan","Lewis","Josh","Tyler", "Evan", "Marco", "Joseph", "Rick", "Morty", "Carman", "Will", "Cole", "Brandon", "Declan", "Scout", "Abdul", "Lee", "Mahommod"])
+        self.lastname = random.choice(["Nolan","Barnfather","Bell","Comeau", "Couturier", "Court", "Wood", "Ellick", "Chamberlin", "Shaw", "De Gea", "Cangli", "McLovin"])
         self.fullname = self.firstname + " " + self.lastname
         self.position = random.choice(["GK", "LB", "CB", "RB", "CM", "CM", "CM", "LW", "ST", "RW"])
         self.otherpositions = []

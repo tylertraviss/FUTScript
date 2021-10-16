@@ -44,7 +44,7 @@ class Team():
         """
         Player goes into squad position
         """
-        print("Called with {}, {}".format(player, position))
+        #print("Called with {}, {}".format(player, position))
         
         if (position == "GK"):
             self.currentGK = player
@@ -196,6 +196,9 @@ class Team():
         """
         # For each position.
         
-        self.changeCardintoPosition("GK", self.findBest("GK"))        
+        theGK = self.findBest("GK")
+        theGK.playerInfo()
+        
+        self.changeCardintoPosition("GK", theGK)        
         
         
