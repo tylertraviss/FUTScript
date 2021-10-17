@@ -41,6 +41,36 @@ teamB.printCurrentLine()
 
 # Start of User Interface
 
+# Function to List a "Card"
+
+def displayPlayerCard(setx, sety, player):
+    """
+    Parameters
+    ----------
+    setx : int
+        where you want x to be
+    sety : int
+        where you want y to be
+    player : Player()
+        The specific player we want to access in display
+
+    Returns
+    -------
+    NA
+
+    """
+    
+    # Eventually adjust color to overall.
+    lbl = Label(window, text =  "("+str(player.rating) + ")", fg = 'black', justify = CENTER) 
+    lbl.place(x=setx-35, y = sety)    
+    
+    lbl = Label(window, text=player.fullname, fg = 'black', justify = CENTER)
+    lbl.place(x=setx, y = sety)
+    lbl = Label(window, text = player.league, fg = 'black', justify = CENTER) 
+    lbl.place(x=setx, y = sety+20)
+    lbl = Label(window, text = player.country, fg = 'black', justify = CENTER) 
+    lbl.place(x=setx, y = sety+40)
+    
 # Function for each menu button
 
 def clickMain():
@@ -50,16 +80,36 @@ def clickMain():
 def clickPlay():
     print("Play Clicked")
     currentmenu = "Play"
-    
-    #window.create_rectange(200,200,120,80) 
-    
-    
-    
-    
-    
+        
 def clickRoster():
     print("Roster Clicked")
     currentmenu = "Roster"
+    
+    lbl = Label(window, text="Current Roster", fg = 'black')
+    lbl.place(x=100, y = 45)
+    
+    # Displaying Roster
+    
+    displayPlayerCard(440, 500, teamA.currentGK) # GK
+    
+    # Back Line Displayed
+    
+    displayPlayerCard(200, 400, teamA.currentLB)
+    displayPlayerCard(370, 400, teamA.currentCB1)
+    displayPlayerCard(540, 400, teamA.currentCB2)
+    displayPlayerCard(710, 400, teamA.currentRB)
+    
+    # Midfield
+    
+    displayPlayerCard(300, 300, teamA.currentCM1)
+    displayPlayerCard(300+170, 300, teamA.currentCM2)
+    displayPlayerCard(300+170+170, 300, teamA.currentCM3)
+    
+    # Strikers
+    
+    displayPlayerCard(200, 200, teamA.currentLW)
+    displayPlayerCard(710, 200, teamA.currentRW)
+    displayPlayerCard((200 + 710)/2, 175, teamA.currentST)
     
 def clickMarket():
     print("Market Clicked")
