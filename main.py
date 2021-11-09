@@ -12,6 +12,8 @@ from tkinter import *
 
 
 
+
+
 teamA = Team()
 teamB = Team()
 
